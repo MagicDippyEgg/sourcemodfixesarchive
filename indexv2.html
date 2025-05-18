@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixes for Source mods broken by the SteamPipe update</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #171a21;
+            color: #ccc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #1b1e24;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .header {
+            background-color: #171a21;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .content {
+            margin-top: 20px;
+        }
+        .breadcrumbs {
+            margin-bottom: 20px;
+        }
+        .breadcrumbs span {
+            color: #666;
+        }
+        .topic {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .comment {
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+        .comment:last-child {
+            border-bottom: none;
+        }
+        .comment-avatar {
+            float: left;
+            margin-right: 10px;
+        }
+        .comment-avatar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .comment-content {
+            overflow: hidden;
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .comment-timestamp {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .comment-text {
+            margin-top: 5px;
+        }
+        .bb_code {
+            background-color: #282c34;
+            border: 1px solid #333;
+            padding: 10px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Half-Life 2: Episode Two General Discussions</h1>
+        </div>
+        <div class="content">
+            <div class="breadcrumbs">
+                <span>Half-Life 2: Episode Two</span> &gt;
+                <span>General Discussions</span> &gt;
+                <span>Topic Details</span>
+            </div>
+            <div class="topic">
+                Fixes for Source mods broken by the SteamPipe update
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="https://avatars.fastly.steamstatic.com/869ca0661043f2e8ab0326c7e07257176ec4fa35_medium.jpg" alt="avatar">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-author">Capt.Host</div>
+                    <div class="comment-timestamp">Jun 28, 2013 @ 1:04pm</div>
+                    <div class="comment-text">
+                        This thread lays out info on how to get HL2/EP1/EP2 mods to work after the 2013 SteamPipe update broke them.<br>
+                        Many thanks to the entire community for doing their best to fix these mods.<br><br>
+                        <b>Source 2013 patches by malortie / marc-antoine</b><br>
+                        ModDB user malortie, Steam user marc-antoine, has created a lot of patches that port various Source mods to Source 2013, and even a few HL1 mods, fixing all kinds of issues with maps and textures.<br>
+                        Be sure to check his work in his <a href="https://web.archive.org/web/20240326052105/http://www.moddb.com/members/malortie/downloads" target="_blank" rel="">page</a>.<br><br>
+                        <b>Gameinfo.txt fix method</b><br>
+                        Find gameinfo.txt in the mod's directory. Delete all contents in the file and paste the appropriate code below.<br>
+                        Remember to always backup the original file.<br>
+                        Be sure to replace MODNAME with the mod's name.<br><br>
+                        For HL2 mods (SteamAppId 220)<br>
+                        <div class="bb_code">
+                            "GameInfo"
+                            {
+                                name            "MODNAME"
+                                game            "MODNAME"
+                                title           "MODNAME"
+                                title2          ""
+                                type            singleplayer_only
+                                icon            "resource\icon"
+                                homepage        ""
+                                developer       ""
+
+                                FileSystem
+                                {
+                                    SteamAppId                220
+
+                                    SearchPaths
+                                    {
+                                        game_lv                 hl2/hl2_lv.vpk
+                                        game+mod                hl2/hl2_sound_vo_english.vpk
+                                        game+mod                hl2/hl2_pak.vpk
+                                        game                    |all_source_engine_paths|hl2/hl2_textures.vpk
+                                        game                    |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+                                        game                    |all_source_engine_paths|hl2/hl2_misc.vpk
+                                        platform                |all_source_engine_paths|platform/platform_misc.vpk
+                                        mod+mod_write+default_write_path |gameinfo_path|..
+                                        game+game_write         hl2
+                                        gamebin                 hl2/bin
+                                        game                    |all_source_engine_paths|hl2
+                                        platform                |all_source_engine_paths|platform
+                                    }
+                                }
+                            }
+                        </div>
+                        <br>
+                        For EP2 mods (SteamAppId 420)<br>
+                        <div class="bb_code">
+                            "GameInfo"
+                            {
+                                name            "MODNAME"
+                                game            "MODNAME"
+                                title           "MODNAME"
+                                title2          ""
+                                type            singleplayer_only
+                                icon            "resource\icon"
+                                homepage        ""
+                                developer       ""
+
+                                FileSystem
+                                {
+                                    SteamAppId              420
+                                    ToolsAppId              211
+                                    AdditionalContentId     220
+
+                                    SearchPaths
+                                    {
+                                        game+mod |gameinfo_path|.
+                                        platform |gameinfo_path|.
+                                        game_lv  hl2/hl2_lv.vpk
+                                        game+mod ep2/ep2_english.vpk
+                                        game+mod ep2/ep2_pak.vpk
+                                        game     |all_source_engine_paths|episodic/ep1_english.vpk
+                                        game     |all_source_engine_paths|episodic/ep1_pak.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_english.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_pak.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_textures.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+                                        game     |all_source_engine_paths|hl2/hl2_misc.vpk
+                                        platform |all_source_engine_paths|platform/platform_misc.vpk
+                                        mod+mod_write+default_write_path |gameinfo_path|.
+                                        game+game_write |gameinfo_path|.
+                                        gamebin episodic/bin
+                                        game     |all_source_engine_paths|episodic
+                                        game     |all_source_engine_paths|hl2
+                                        platform |all_source_engine_paths|platform
+                                    }
+                                }
+                            }
+                        </div>
+                        <br><br>
+                        <b>Fix for Missing Textures and Models</b><br>
+                        There will be cases in which you get missing textures and models. To fix this, use Valve's VPK tool ([anysourcegame]/bin/vpk.exe) to extract HL2 and EP2 content. Then copy "models" and "materials" folders to the mod's directory. Don't overwrite any files.<br>
+                        <div class="bb_code">
+                            HL2 -» "SteamApps\common\Half-Life 2\hl2\hl2_textures_dir.vpk"
+                            EP2 -» "SteamApps\common\Half-Life 2\ep2\ep2_pak_dir.vpk"
+                            VPK tool -» "SteamApps\common\[anysourcegame]\bin\vpk.exe"
+                        </div>
