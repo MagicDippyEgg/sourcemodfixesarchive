@@ -141,92 +141,95 @@
                         Be sure to replace MODNAME with the mod's name.<br><br>
                         For HL2 mods (SteamAppId 220)<br>
                         <div class="bb_code">
-                            "GameInfo"
-                            {
-                                name            "MODNAME"
-                                game            "MODNAME"
-                                title           "MODNAME"
-                                title2          ""
-                                type            singleplayer_only
-                                icon            "resource\icon"
-                                homepage        ""
-                                developer       ""
+"GameInfo"
+{
+	name            "MODNAME"
+	game 		"MODNAME"
+	title 		"MODNAME"
+	title2 		""
+	type		singleplayer_only
+	icon 		"resource\icon" 
+	homepage 	"" 
+	developer 	"" 
 
-                                FileSystem
-                                {
-                                    SteamAppId                220
+	FileSystem
+	{
+		SteamAppId				220		
+		
+		SearchPaths
+		{
+			game_lv			hl2/hl2_lv.vpk
+			game+mod		hl2/hl2_sound_vo_english.vpk
+			game+mod		hl2/hl2_pak.vpk
+			game	|all_source_engine_paths|hl2/hl2_textures.vpk
+			game	|all_source_engine_paths|hl2/hl2_sound_misc.vpk
+			game	|all_source_engine_paths|hl2/hl2_misc.vpk
+			platform  |all_source_engine_paths|platform/platform_misc.vpk
+			mod+mod_write+default_write_path	|gameinfo_path|..
+			game+game_write	hl2
+			gamebin			hl2/bin
+			game	|all_source_engine_paths|hl2
+			platform	|all_source_engine_paths|platform
+		}
+	}
 
-                                    SearchPaths
-                                    {
-                                        game_lv                 hl2/hl2_lv.vpk
-                                        game+mod                hl2/hl2_sound_vo_english.vpk
-                                        game+mod                hl2/hl2_pak.vpk
-                                        game                    |all_source_engine_paths|hl2/hl2_textures.vpk
-                                        game                    |all_source_engine_paths|hl2/hl2_sound_misc.vpk
-                                        game                    |all_source_engine_paths|hl2/hl2_misc.vpk
-                                        platform                |all_source_engine_paths|platform/platform_misc.vpk
-                                        mod+mod_write+default_write_path |gameinfo_path|..
-                                        game+game_write         hl2
-                                        gamebin                 hl2/bin
-                                        game                    |all_source_engine_paths|hl2
-                                        platform                |all_source_engine_paths|platform
-                                    }
-                                }
-                            }
+}
                         </div>
                         <br>
                         For EP2 mods (SteamAppId 420)<br>
                         <div class="bb_code">
-                            "GameInfo"
-                            {
-                                name            "MODNAME"
-                                game            "MODNAME"
-                                title           "MODNAME"
-                                title2          ""
-                                type            singleplayer_only
-                                icon            "resource\icon"
-                                homepage        ""
-                                developer       ""
+"GameInfo"
+{
+	name            "MODNAME"
+	game 		"MODNAME"
+	title 		"MODNAME"
+	title2 		""
+	type		singleplayer_only
+	icon 		"resource\icon" 
+	homepage 	"" 
+	developer 	"" 
 
-                                FileSystem
-                                {
-                                    SteamAppId              420
-                                    ToolsAppId              211
-                                    AdditionalContentId     220
+	FileSystem
+        {
+        SteamAppId              420
+        ToolsAppId              211
+        AdditionalContentId 	220
 
-                                    SearchPaths
-                                    {
-                                        game+mod |gameinfo_path|.
-                                        platform |gameinfo_path|.
-                                        game_lv  hl2/hl2_lv.vpk
-                                        game+mod ep2/ep2_english.vpk
-                                        game+mod ep2/ep2_pak.vpk
-                                        game     |all_source_engine_paths|episodic/ep1_english.vpk
-                                        game     |all_source_engine_paths|episodic/ep1_pak.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_english.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_pak.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_textures.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_sound_misc.vpk
-                                        game     |all_source_engine_paths|hl2/hl2_misc.vpk
-                                        platform |all_source_engine_paths|platform/platform_misc.vpk
-                                        mod+mod_write+default_write_path |gameinfo_path|.
-                                        game+game_write |gameinfo_path|.
-                                        gamebin episodic/bin
-                                        game     |all_source_engine_paths|episodic
-                                        game     |all_source_engine_paths|hl2
-                                        platform |all_source_engine_paths|platform
-                                    }
-                                }
-                            }
+        SearchPaths
+        {
+            		game+mod |gameinfo_path|.
+			platform |gameinfo_path|.
+			game_lv hl2/hl2_lv.vpk
+			game+mod ep2/ep2_english.vpk
+			game+mod ep2/ep2_pak.vpk
+			game |all_source_engine_paths|episodic/ep1_english.vpk
+			game |all_source_engine_paths|episodic/ep1_pak.vpk
+			game |all_source_engine_paths|hl2/hl2_english.vpk
+			game |all_source_engine_paths|hl2/hl2_pak.vpk
+			game |all_source_engine_paths|hl2/hl2_textures.vpk
+			game |all_source_engine_paths|hl2/hl2_sound_vo_english.vpk
+			game |all_source_engine_paths|hl2/hl2_sound_misc.vpk
+			game |all_source_engine_paths|hl2/hl2_misc.vpk
+			platform |all_source_engine_paths|platform/platform_misc.vpk
+			mod+mod_write+default_write_path |gameinfo_path|.
+			game+game_write |gameinfo_path|.
+			gamebin episodic/bin
+			game |all_source_engine_paths|episodic
+			game |all_source_engine_paths|hl2
+			platform |all_source_engine_paths|platform
+
+        }
+    }
+
+}
                         </div>
                         <br><br>
                         <b>Fix for Missing Textures and Models</b><br>
                         There will be cases in which you get missing textures and models. To fix this, use Valve's VPK tool ([anysourcegame]/bin/vpk.exe) to extract HL2 and EP2 content. Then copy "models" and "materials" folders to the mod's directory. Don't overwrite any files.<br>
                         <div class="bb_code">
-                            HL2 -» "SteamApps\common\Half-Life 2\hl2\hl2_textures_dir.vpk"
-                            EP2 -» "SteamApps\common\Half-Life 2\ep2\ep2_pak_dir.vpk"
-                            VPK tool -» "SteamApps\common\[anysourcegame]\bin\vpk.exe"
+HL2 -» "SteamApps\common\Half-Life 2\hl2\hl2_textures_dir.vpk"
+EP2 -» "SteamApps\common\Half-Life 2\ep2\ep2_pak_dir.vpk"
+VPK tool -» "SteamApps\common\[anysourcegame]\bin\vpk.exe"
                         </div>
                     </div>
                 </div>
